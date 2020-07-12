@@ -1,0 +1,264 @@
+Trabajo Práctico "Jardín Virtual"
+Alumno: Agustín Sarasúa
+Fecha de entrega 1: 13/07/20
+
+Consigna: mediante el uso de HTML y CSS, crear una página web que represente, de forma animada, el ciclo día-noche de un jardin.
+
+En el body del HTML:
+	contenedor (div)
+		cielo (div) 
+			luna (div) //clase 'luna'
+			sol (div) //clase 'sol'
+			nubes (div)
+				nube 1 (div) //todas las nubes tendrán su clase 'nube'
+				nube 2 (div)
+				nube 3 (div)
+				nube 4 (div)
+				nube 5 (div)
+				nube 6 (div)
+			estrellas (div)
+				estrella 1 (div) //todas tendrán clase 'estrella'
+				estrella 2 (div)
+				estrella 3 (div)
+				estrella 4 (div)
+				estrella 5 (div)
+				estrella 6 (div)
+		tierra (div)
+			cieloFondo (div) //esto es porque una parte del cielo estará en la 2da mitad de la pantalla
+			tierraFondo (div) //aparte del bosque, habrá un fondo verde para que no quede 'flotando'
+			bosque (div) //clase 'bosque'
+			plantas (div) //clase 'plantas'
+				planta 1 (div)
+				planta 2 (div)
+				planta 3 (div)
+				planta 4 (div)
+				planta 5 (div)
+				planta 6 (div)
+				planta 7 (div)
+			pastoJardin (div) //clase 'pasto', va a 'sostener' a las plantas
+			cerca (div) //elemento decorativo
+			termómetro (div)
+				mercurio (div) //la parte animada del termómetro			
+
+Estilo en CSS (después veremos en detalle el tema de las animaciones)
+	-contenedor:
+		ocupará toda la pantalla (100vh)
+		position relative, o sea será el padre de todo lo demás
+
+	-cielo:
+		position absolute
+		ocupará la mitad de arriba de la pantalla:
+			para ello, pongo bottom 50%
+		color de fondo celeste
+
+	-luna:
+		imagen fondo 'moon.png'
+			no se va a repetir (repeat: no-repeat)
+			no se va a estirar (size: contain)
+		su ancho y altura será el mismo: 150px
+		top: 55% //para que aparezca desde abajo
+		right: -15% //inicialmente no la veremos
+		z-index: 1 //para que las nubes la puedan tapar
+		animación: movimientoLuna 48s infinito
+
+	-sol:
+		imagen fondo 'sun.png'
+			no se va a repetir ni estirar
+		ancho y altura iguales: 200px
+		top: 5% //para que no esté tan arriba
+		right: 0 //estará a la derecha de la pantalla
+		z-index: 1 //idem luna
+
+	-nube:
+		todas tendrán de fondo 'cloud.png'
+			no se repite ni estira
+		su altura será la mitad del ancho
+		top: 0 y left 0: para darles un punto de partida (después lo personalizaremos)
+		z-index: 2 //será el mayor de los del cielo
+		animación: movimientoNube 48s lineal infinito
+
+	-personalización nubes (con elección aleatoria):
+		-nube 2, 4 y 6: estarán espejadas (scaleX(-1))
+		-nube 1 y 4:
+			margen arriba 'cualquiera entre 0 y 17%' cosa que no toque el bosque //a partir de ahora 'random'
+			duración animación 'cualquiera entre 20 y 48 segundos' //a partir de ahora 'random'
+		-nube 2: margen arriba y duración animación random
+		-nubes 3 y 6: idem
+		-nube 5: idem
+		-nube 1 a 6 (por separado):
+			delay animación entre 0 y -30s cosa de que no se larguen todas al mismo tiempo y en el mismo lugar
+
+	-estrellas:
+		position absolute
+		left: 10% //margen izquierdo mínimo
+		top: 5% //margen arriba mínimo
+		display flex //para ordenar todos simétricamente
+		justificar contenido: centro //verticalmente lo haremos de forma manual
+
+	-personalización de estrellas
+		-estrella 1, 3 y 5: fondo 'star.png'
+		-estrella 2, 4 y 6: fondo 'star2.png'
+		-estrella 1 a 6:
+			su margen de arriba estará entre 0% y 20% de manera aleatoria
+
+	-estrella:
+		margen izquierdo y derecho: 70px //cosa que no se vaya de la pantalla
+		su img de fondo no se repite ni se estira
+		altura igual que ancho: 50px
+		z-index: 0 //el menor
+		animación: opacidadEstrellas 48s infinito
+
+	-tierra:
+		position absolute
+		ocupará la mitad de abajo de la pantalla:
+			debería poner top 50%
+		display flex para la siguiente línea
+		justificar contenido: centro
+
+	-cieloFondo:
+		position absolute
+		top 0 //donde arranca el div 'tierra'
+		altura 85% del div
+		ancho 100%
+		color fondo: celeste
+		animación: colorCielo 48s infinito
+
+	-tierraFondo
+		position absolute
+		altura 15% //o sea lo restante jaja
+		ancho: 100%
+		margen arriba 85%
+		bottom 0 //va abajo de todo
+		color fondo: verde
+
+	-bosque:
+		su imagen de fondo será 'forest.png'
+			no se repetirá ni estirará, y estará en el centro
+		altura: 90% //si pongo 100 ya se sale del div
+		ancho: 100%
+		bottom: 10% //cosa que no quede tan abajo
+	
+	-plantas:
+		display flex para ordenar a todos sus hijos, o sea las plantas
+			alineandolos horizontal y verticalmente
+		z-index: 3 //arriba de casi todo menos el pasto del jardín
+		animación: movimientoPlantas 48s infinito
+		cada planta tendrá una imagen de fondo distinta:
+			-planta 1: 'flower2.png' 
+			-planta 2: 'cactus.png'
+			-planta 3: 'flower3.png' 
+			-planta 4: 'palm-tree.png'
+			-planta 5: 'flower4.png'
+			-planta 6: 'garden-plant.png'
+			-planta 7: 'flower.png'
+
+	-planta:
+		su fondo no se repetirá ni estirará
+		altura igual que ancho: 150px
+
+	-pastoJardin:
+		position absolute
+		color fondo: verde oscuro //debe resaltar
+		altura: 10% del div
+		ancho 90% //en el otro 10% tendremos fondo verde igual
+		bottom 0
+		bordes redondeados
+		z-index: 4 //este si arriba de todo
+
+	-cerca:
+		position absolute
+		fondo 'fence.png'
+			se repite en eje X así parecerá una sola cerca larga
+			no se estira
+		altura 100px //un poco más bajo que las plantas
+		ancho: 88% //donde está el pasto del jardín
+		bottom 5% //más arriba del pasto
+
+	-termómetro:
+		position absolute
+		ubicado a la derecha (right menor a 10%)
+		arriba del div que lo contiene (top menor a 5%)
+		alto mayor a 50% cosa de que se vea
+		ancho menor a 5%
+		bordes ligeramente redondeados
+		color fondo blanco
+		z-index: 1 //sus componentes estarán por encima
+
+	-mercurio:
+		position absolute
+		abajo de todo / bottom 0
+		altura 8% //será su altura mínima, si es menor a eso se sale de su contenedor
+		color fondo rojo
+		z-index 2 //arriba de su contenedor
+		animación cambiosMercurio 48s infinito
+
+Animaciones:
+
+Primero, veremos el ciclo equitativo día noche (del 21 de septiembre) en porcentajes:
+	0%: vendría a ser el mediodía
+	27%: atardecer, después de las 18:30 //acá serán 13 segundos
+	50%: ya de noche
+	77%: amanecer, para las 6:30 de la mañana //acá 37 segundos
+	100%: mediodía otra vez //a los 48 segundos
+
+Ahora si, a las animaciones:
+	
+	-movimientoPlantas:
+		-0%: bottom 10%
+		-27%: seguirá estable hasta acá //o sea repetimos la anterior
+		-50%: bottom: -48% //todo tapado en zoom 100%
+		-77%: estable
+		-100%: bottom 10% otra vez
+
+	-movimientoSol:
+		-0%: right 0
+		-25%: seguirá top 5%
+		-30%: hasta acá opacity 1
+		-50%: 
+			top 30% //veremos que baja
+			right 110% //se va de pantalla
+			opacity 0 //para poder moverlo
+		-55%
+			top 55% //aún más abajo para amanecer
+			right: -50% //a la derecha afuera de pantalla
+			opacity 0 todavía
+		-70%: opacity 1 y más cerca del lado derecho
+		-100%: right 0 y top 5%
+
+	-movimientoLuna:
+		-0%: right -15%
+		-27%: hasta acá no la veremos
+		-40%: top: 15% //aparece en pantalla
+		-70%: idem anterior para mantener
+		-100%: right 105% y top 40% //veremos como baja y sale de pantalla
+
+	-colorCielo:
+		-0%: color fondo celeste
+		-23%: idem
+		-27%: color naranja //atardecer corto
+		-33%: color negro //ya de noche
+		-73%: idem
+		-77%: color naranja
+		-100%: color celeste		
+
+	-movimientoNube:
+		desde: izquierda -10% //afuera pantalla izquierda
+		hasta: izquierda: 110% //afuera pantalla derecha
+
+	-opacidadEstrella:
+		0%: opacidad 0 
+		27%: idem para mantener
+		50%: opacidad 1
+		70%: idem
+		73%: opacidad 0 //llegada amanecer
+		100%: opacidad 0
+
+	-cambiosMercurio:
+		0%: 
+			altura 100% porque estamos al mediodía
+			bordes redondeados
+		10%: bordes redondeados abajo pero arriba no //border-radius 0 0 xp xp
+		27%: altura 77%
+		50%: altura 20% //como es de noche, bajará bastante
+		80%: altura 8% //la menor altura, al estar en el amanecer
+		100%: idem 0%

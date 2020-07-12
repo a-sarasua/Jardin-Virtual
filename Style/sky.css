@@ -1,0 +1,157 @@
+body {
+	overflow: hidden;
+	margin: 0;
+}
+
+.container {
+	min-height: 100vh;
+	min-width: 100vh;
+	position: relative;
+}
+
+.sky {
+	position: absolute;
+	bottom: 50%;
+	height: 50%;
+	width: 100%;
+	background-color: #58FAF4;
+	animation: skyColor 48s infinite;
+}
+
+.moon {
+	position: absolute;
+	background: url(../Img/moon.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 150px;
+	width: 150px;	
+	top: 55%;
+	right: -15%;
+	z-index: 1;
+	animation: moonMovement 48s infinite;
+}
+
+.sun {
+	position: absolute;
+	background: url(../Img/sun.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 200px;
+	width: 200px;
+	right: 0;	
+	top: 5%;
+	z-index: 1;
+	animation: sunMovement 48s infinite;
+}
+
+.cloud {
+	position: absolute;
+	background: url(../Img/cloud.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 75px;
+	width: 150px;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	animation: cloudMovement 48s linear infinite;
+}
+
+.cloud2, .cloud4, .cloud6 {
+	transform: scaleX(-1);
+}
+
+.cloud1, .cloud4 {
+	margin-top: 11%;
+	animation-duration: 35s;
+}
+
+.cloud2 {
+	margin-top: 5%;
+	animation-duration: 45s;
+}
+
+.cloud3, .cloud6 {
+	animation-duration: 25s;
+	margin-top: 17%;
+}
+
+.cloud5 {
+	animation-duration: 40s;
+	margin-top: 0;
+}
+
+.cloud1 {
+	animation-delay: -10s;
+}
+
+.cloud2 {
+	animation-delay: -20s;
+}
+
+.cloud3 {
+	animation-delay: -15s;
+}
+
+.cloud4 {
+	animation-delay: -2s;
+}
+
+.cloud5 {
+	animation-delay: -30s;
+}
+
+.cloud6 {
+	animation-delay: -5s;
+}
+
+.stars {
+	position: absolute;
+	left: 10%;
+	top: 5%;
+	display: flex;
+	justify-content: center;
+}
+
+.star1, .star3, .star5 {
+	background: url(../Img/star.png);
+}
+
+.star2, .star4, .star6 {
+	background: url(../Img/star2.png);
+}
+
+.star1 {
+	margin-top: 10%;
+}
+
+.star2 {
+	margin-top: 5%;
+}
+
+.star3 {
+	margin-top: 15%;
+}
+
+.star4 {
+	margin-top: 19%;
+}
+
+.star5 {
+	margin-top: 3%;
+}
+
+.star6 {
+	margin-top: 12%;
+}
+
+.star {
+	margin-left: 70px;
+	margin-right: 70px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 50px;
+	width: 50px;
+	z-index: 0;
+	animation: starsOpacity 48s infinite;
+}

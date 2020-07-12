@@ -1,0 +1,218 @@
+.ground {
+	position: absolute;
+	top: 50%;
+	height: 50%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.skyBack {
+	position: absolute;
+	height: 85%;
+	width: 100%;
+	top: 0;
+	background-color: #58FAF4;
+	animation: skyColor 48s infinite;
+}
+
+.groundBack {
+	position: absolute;
+	height: 15%;
+	width: 100%;
+	margin-top: 85%;
+	bottom: 0;
+	background-color: #9AFE2E;
+}
+
+.forest {
+	position: absolute;
+	background: url(../Img/forest.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	height: 90%;
+	width: 100%;
+	bottom: 10%;
+}
+
+.plants {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 3;
+	bottom: 10%;
+	padding-left: 4%;
+	animation: plantsMovement 48s infinite;
+}
+
+.plant1 {
+	background: url(../Img/flower2.png);
+}
+
+.plant2 {
+	background: url(../Img/cactus.png);
+}
+
+.plant3 {
+	background: url(../Img/flower3.png);
+}
+
+.plant4 {
+	background: url(../Img/palm-tree.png);
+}
+
+.plant5 {
+	background: url(../Img/flower4.png);
+}
+
+.plant6 {
+	background: url(../Img/garden-plant.png);
+}
+
+.plant7 {
+	background: url(../Img/flower.png);
+}
+
+.plant {
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 150px;
+	width: 150px;
+}
+
+.gardenGrass {
+	position: absolute;
+	background-color: green;
+	height: 11%;
+	width: 90%;
+	bottom: 0;
+	border-radius: 15px;
+	z-index: 4;
+}
+
+.fence {
+	position: absolute;
+	background: url(../Img/fence.png);
+	background-repeat: repeat-x;
+	background-size: contain;
+	height: 100px;
+	width: 88%;
+	opacity: 0.9;
+	bottom: 6%;
+	z-index: 1;
+	animation: fenceOpacity 48s infinite;
+}
+
+.thermometer {
+	position: absolute;
+	top: 2%;
+	right: 6%;
+	height: 60%;
+	width: 3%; 
+	border: 4px solid #8A4B08;
+	border-radius: 30px;
+	background-color: white;
+	z-index: 1;
+}
+
+.mercury {
+	position: absolute;
+	bottom: 0;
+	right: 2.8%;
+	border-radius: 30px;
+	height: 8%;
+	width: 95%;
+	background-color: red;
+	opacity: 0.8; 
+	z-index: 2;
+	animation: mercuryRise 48s infinite;
+}
+
+.line {
+	position: absolute;
+	border-bottom: 3px solid black; 
+	z-index: 3;
+}
+
+.bigLine {
+	width: 70%;
+}
+
+.smallLine {
+	width: 35%;
+}
+
+.line0 {
+	bottom: 5%;
+	border-radius: 0 0 0 30px;
+}
+
+.line1 {
+	bottom: 10%;
+}
+
+.line2 {
+	bottom: 20%;
+}
+
+.line3 {
+	bottom: 30%;
+}
+
+.line4 {
+	bottom: 40%;
+}
+
+.line5 {
+	bottom: 50%;
+}
+
+.line6 {
+	bottom: 60%;
+}
+
+.line7 {
+	bottom: 70%;
+}
+
+.line8 {
+	bottom: 80%;
+}
+
+.line9 {
+	bottom: 90%;
+}
+
+.line10 {
+	bottom: 15%;
+}
+
+.line11 {
+	bottom: 25%;
+}
+
+.line12 {
+	bottom: 35%;
+}
+
+.line13 {
+	bottom: 45%;
+}
+
+.line14 {
+	bottom: 55%;
+}
+
+.line15 {
+	bottom: 65%;
+}
+
+.line16 {
+	bottom: 75%;
+}
+
+.line17 {
+	bottom: 85%;
+}

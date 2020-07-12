@@ -1,0 +1,202 @@
+@keyframes plantsMovement {
+	0% {
+		bottom: 10%;
+	}
+
+	27% {
+		bottom: 10%;
+	}
+
+	50% {
+		bottom: -48%;
+	}
+
+	77% {
+		bottom: -48%;
+	}
+
+	100% {
+		bottom: 10%;
+	}
+}
+
+@keyframes sunMovement {
+	0% {
+		right: 0;
+	}
+
+	25% {
+		top: 5%;
+	}
+
+	30% {
+		opacity: 1;
+	}
+
+	50% {
+		top: 30%;
+		right: 110%;
+		opacity: 0;
+	}
+
+	55% {
+		top: 55%;
+		right: -50%;
+		opacity: 0;
+	}
+
+	70% {
+		top: 55%;
+		right: -25%;
+		opacity: 1;
+	}
+
+	100% {
+		right: 0;
+		top: 5%;
+	}
+}
+
+@keyframes moonMovement {
+	0% {
+		right: -15%;
+	}
+
+	27% {
+		right: -15%;
+		top: 65%;
+	}
+
+	40% {
+		top: 15%;
+	}
+
+	70% {
+		top: 15%;
+	}
+
+	100% {
+		right: 105%;
+		top: 40%;
+	}
+}
+
+@keyframes skyColor {
+	0% {
+		background-color: #58FAF4;
+	}
+
+	23% {
+		background-color: #58FAF4;
+	}
+
+	27% {
+		background-color: #FF8000;
+	}
+
+	33% {
+		background-color: black;
+	}
+
+	73% {
+		background-color: black;
+	}
+
+	77% {
+		background-color: #FF8000;
+	}
+
+	100% {
+		background-color: #58FAF4;
+	}
+}
+
+@keyframes cloudMovement {
+	from {
+		left: -10%;
+	}
+
+	to {
+		left: 110%;
+	}
+}
+
+@keyframes starsOpacity {
+	0% {
+		opacity: 0;
+	}
+
+	27% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	70% {
+		opacity: 1;
+	}
+
+	73% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes fenceOpacity {
+	0% {
+		opacity: 1;
+	}
+
+	20% {
+		opacity: 1;
+	}
+
+	33% {
+		opacity: 0.6;
+	}
+
+	80% {
+		opacity: 0.6;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes mercuryRise {
+	0% {
+		border-radius: 30px;
+		height: 100%;
+	}
+
+	10% {
+		border-radius: 0 0 30px 30px;
+	}
+
+	27% {
+		height: 77%;
+	}
+
+	50% {
+		height: 20%;
+	}
+
+	80% {
+		height: 8%;
+	}
+
+	92% {
+		border-radius: 0 0 30px 30px;
+	}
+
+	100% {
+		border-radius: 30px;
+		height: 100%;
+	}
+}
