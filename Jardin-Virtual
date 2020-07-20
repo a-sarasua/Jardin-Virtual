@@ -1,21 +1,34 @@
 Trabajo Práctico "Jardín Virtual"
 Alumno: Agustín Sarasúa
-Fecha de entrega 1: 13/07/20
+Fecha de entrega: 23/07/20
 
-Consigna: mediante el uso de HTML y CSS, crear una página web que represente, de forma animada, el ciclo día-noche de un jardin.
+Parte 1:
+
+Consigna: mediante el uso de HTML y CSS, crear una página web que represente, de forma animada, el ciclo día-noche de un jardin. Aquí también incluiremos lo necesario para la parte 2, o sea la parte de HTML y CSS para los cambios de temperatura.
 
 En el body del HTML:
 	contenedor (div)
 		cielo (div) 
 			luna (div) //clase 'luna'
 			sol (div) //clase 'sol'
-			nubes (div)
-				nube 1 (div) //todas las nubes tendrán su clase 'nube'
+			nubesNormales (div)
+				nube 1 (div) //todas tendrán su clase 'nubeNormal'
 				nube 2 (div)
 				nube 3 (div)
 				nube 4 (div)
 				nube 5 (div)
 				nube 6 (div)
+			nubesLluvia (div)
+				nube 7 (div) //todas tendrán su clase 'nubeLluvia'
+				nube 8 (div)
+				nube 9 (div)
+				nube 10 (div)
+				nube 11 (div)
+				nube 12 (div)
+			lluvia (div)
+				gotaLluvia gota1 //se usarán varias capas para cubrir toda la página
+			nieve (div)
+				copoNieve copo1 //idem anterior
 			estrellas (div)
 				estrella 1 (div) //todas tendrán clase 'estrella'
 				estrella 2 (div)
@@ -38,7 +51,8 @@ En el body del HTML:
 			pastoJardin (div) //clase 'pasto', va a 'sostener' a las plantas
 			cerca (div) //elemento decorativo
 			termómetro (div)
-				mercurio (div) //la parte animada del termómetro			
+				mercurio (div) //la parte animada del termómetro
+				linea x (div) //se pondrán varias líneas, cada una será una marca de temperatura			
 
 Estilo en CSS (después veremos en detalle el tema de las animaciones)
 	-contenedor:
@@ -69,8 +83,8 @@ Estilo en CSS (después veremos en detalle el tema de las animaciones)
 		right: 0 //estará a la derecha de la pantalla
 		z-index: 1 //idem luna
 
-	-nube:
-		todas tendrán de fondo 'cloud.png'
+	-nubeNormal:
+		todas tendrán de fondo 'normalCloud.png'
 			no se repite ni estira
 		su altura será la mitad del ancho
 		top: 0 y left 0: para darles un punto de partida (después lo personalizaremos)
@@ -87,6 +101,22 @@ Estilo en CSS (después veremos en detalle el tema de las animaciones)
 		-nube 5: idem
 		-nube 1 a 6 (por separado):
 			delay animación entre 0 y -30s cosa de que no se larguen todas al mismo tiempo y en el mismo lugar
+
+	nubesLluvia
+		position absolute
+		top -5% (para que las nubes no dejen tantos huecos)
+		left -15px
+		ancho 110% para que ocupe toda la página
+		z-index: 2 igual que las nubes comunes
+
+	nubeLluvia:
+		todas tendrán de fondo 'rainCloud'
+			se repite en el eje X poniendo 'space' para que no salga cortada la última nube
+			no se estira
+		su ancho será el 100%
+		su alto 120px
+		las que tengan número par van a estar más a la derecha con un margen de arriba negativo
+			esto es para formar varias capas de nubes
 
 	-estrellas:
 		position absolute
@@ -194,12 +224,19 @@ Estilo en CSS (después veremos en detalle el tema de las animaciones)
 
 Animaciones:
 
-Primero, veremos el ciclo equitativo día noche (del 21 de septiembre) en porcentajes:
+Primero, veremos el ciclo equitativo día noche (para nuestro verano) en porcentajes:
 	0%: vendría a ser el mediodía
-	27%: atardecer, después de las 18:30 //acá serán 13 segundos
+	27%: atardecer, después de las 18:30 //acá serán alrededor de 13 segundos
 	50%: ya de noche
 	77%: amanecer, para las 6:30 de la mañana //acá 37 segundos
 	100%: mediodía otra vez //a los 48 segundos
+
+Ahora veamos el del invierno:
+	0%: mediodía
+	23%: atardecer, para las 17:30
+	50%: noche total
+	83%: amanecer, a las 8 de la mañana
+	100%: mediodía otra vez	
 
 Ahora si, a las animaciones:
 	
@@ -210,7 +247,7 @@ Ahora si, a las animaciones:
 		-77%: estable
 		-100%: bottom 10% otra vez
 
-	-movimientoSol:
+	-movimientoSolVerano:
 		-0%: right 0
 		-25%: seguirá top 5%
 		-30%: hasta acá opacity 1
@@ -225,32 +262,42 @@ Ahora si, a las animaciones:
 		-70%: opacity 1 y más cerca del lado derecho
 		-100%: right 0 y top 5%
 
+	-movimientoSolInvierno //cambiarán solo los porcentajes
+		-20%: empieza a caer
+		-40%: afuera de la pantalla con right 110%
+		-50%: ya va a estar a la derecha con opacity 0
+		-70%: opacity 1 y más cerca del borde de la pantalla
+
 	-movimientoLuna:
 		-0%: right -15%
-		-27%: hasta acá no la veremos
+		-27% verano - 25% invierno: hasta acá no la veremos
 		-40%: top: 15% //aparece en pantalla
 		-70%: idem anterior para mantener
 		-100%: right 105% y top 40% //veremos como baja y sale de pantalla
 
 	-colorCielo:
 		-0%: color fondo celeste
-		-23%: idem
-		-27%: color naranja //atardecer corto
-		-33%: color negro //ya de noche
-		-73%: idem
-		-77%: color naranja
+		-23% verano - 21% invierno: idem
+		-27% verano - 23% invierno: color naranja //atardecer corto
+		-33% verano - 28% invierno: color negro //ya de noche
+		-73% verano - 76% invierno: idem
+		-77% verano - 81% invierno: color naranja
 		-100%: color celeste		
 
-	-movimientoNube:
+	-movimientoNubeNormal:
 		desde: izquierda -10% //afuera pantalla izquierda
 		hasta: izquierda: 110% //afuera pantalla derecha
 
+	-movimientoNubeLluvia
+		-30% y 70%: left 0 o mayor a -20px, o sea se mantendrá allí mientras llueve
+		-100%: left 110% o sea sale de la pantalla 
+
 	-opacidadEstrella:
 		0%: opacidad 0 
-		27%: idem para mantener
-		50%: opacidad 1
-		70%: idem
-		73%: opacidad 0 //llegada amanecer
+		27% verano - 23% invierno: idem para mantener hasta este punto
+		50% verano - 40% invierno: opacidad 1
+		70% verano - 75% invierno: idem
+		73% verano - 77% invierno: opacidad 0 //llegada amanecer
 		100%: opacidad 0
 
 	-cambiosMercurio:
@@ -262,3 +309,137 @@ Ahora si, a las animaciones:
 		50%: altura 20% //como es de noche, bajará bastante
 		80%: altura 8% //la menor altura, al estar en el amanecer
 		100%: idem 0%
+
+object-fit contain
+
+Parte 2:
+
+Consignas:
+	-Desde un archivo JS, poner temperatura de forma arbitraria y que eso esté plasmado en el HTML. En base a los grados que hayan en ese momento, va a tener que pasar algo en la interfaz. Por ejemplo: más plantas, menos plantas, más sol, menos sol.
+	-Una vez logrado, modificar la aplicación web para que pida a una API (weatherapi.com) la temperatura actual para utilizarla en el proyecto.
+
+Antes que nada, tenemos que ver un par de cosas:
+	-termómetro (hay que definir cuánto valdrá cada marca):
+		-cantidad de líneas grandes: 6 
+		-cantidad de líneas chicas: 12
+		arranca con una chiquita y termina con una grande. Cada 2 líneas chiquitas, una grande. O sea, la 1er línea chiquita es el 33% de lo que falta para la siguiente línea grande, la segunda el 66%, cerrando con la última en 100% 
+		entonces, las  temperaturas (de abajo a arriba) serán las siguientes, con el agregado de sus alturas:
+				-6.6° //bottom 5%
+				-3.30° //10%
+			0°	//15%
+				3.30°	//20%
+				6.6°	//25%
+			10° //30%
+				13.30	//35%
+				16.6°	//40%
+			20°	//45%
+				23.30°//50%
+				26.6°	//55%
+			30°	//60%
+				33.3° //65%
+				36.6° //70%
+			40° //75%
+				43.3° //80%
+				46.6° //85%
+			50° //90%
+	-amplitud térmica: la opción más fácil que se maneja es la siguiente
+		-hacer los casos extremos:
+			-verano: caso inicial
+				entre los 20 y 50 grados
+				las plantas crecen normalmente
+				si la humedad es mayor a 80: lluvia
+			-invierno:
+				entre los -3 y 20 grados
+				la noche dura más que el día
+				las plantas crecen menos
+				si la humedad es mayor a 80: nieve
+
+Vamos a ver que cambios tenemos que hacer a modo de 1er paso (la API va entrar a lo último)
+	-verano a invierno
+		va a suceder cuando 
+			la temperatura sea menor a 20 grados. 
+			la animación movimientoSolVerano haya terminado, lo cual implica que estamos al mediodía
+		los cambios serán:
+			animación colorCieloVerano será reemplazada por colorCieloInvierno
+				en ella la noche llegará antes y se irá después, se usarán colores más claros
+			animación movimientoSolVerano cambiará para usar movimientoSolInvierno
+				el Sol se pondrá más rápido
+			animación movimientoLunaVerano reemplazado por movimientoLunaInvierno
+				la Luna saldrá antes
+			animación cambiosMercurioVerano cambia por cambiosMercurioInvierno
+				el mercurio oscilará entre los -3° y 20°
+			las plantas usarán su animación de invierno
+			idem la opacidad de las estrellas
+			la 1era y última planta dejarán de verse luego de que se escondan por siguiente vez
+
+
+	-invierno a verano
+		va a suceder cuando
+			la temperatura sea mayor a 20 grados
+			la animación movimientoSolInvierno haya finalizado
+		sus cambios:
+			animación colorCieloInvierno reemplazada por colorCieloVerano
+			animación movimientoSolInvierno reemplazada por movimientoSolVerano
+			animación movimientoLunaInvierno reemplazada por movimientoLunaVerano 
+			animación cambiosMercurioInvierno reemplazada por cambiosMercurioVerano
+			la 1era y última planta tendrán opacidad 1 otra vez
+			el bosque tendrá como imagen de fondo 'forest.png'
+			el pasto del jardín y del fondo pasarán a sus verdes iniciales
+
+	-sol a lluvia
+		va a suceder cuando:
+			sea verano
+			la humedad sea mayor a 80%
+			animación movimientoSolVerano terminada
+		cambios a realizar:
+			las nubes normales se dejarán de ver
+			animación colorCieloVerano reemplazada por colorCieloLluvia 
+			las nubes de lluvia se podrán ver (antes estaban transparentes)
+			las gotas de lluvia se podrán ver
+
+	-lluvia a sol
+		va a suceder cuando:
+			esté lloviendo
+			hayan pasado 96 segundos (o sea 2 días)
+		cambios:
+			las nubes normales de verán de nuevo
+			animación colorCieloLluvia reemplazada por colorCieloVerano
+			las nubes de lluvia y las gotas de lluvia se dejarán de ver
+
+	-sol a nieve
+		sucederá cuando:
+			sea invierno
+			la humedad sea mayor a 80%
+			animación movimientoSolVerano terminada
+		cambios:
+			las nubes normales se dejarán de ver
+			animación colorCieloInvierno reemplazada por colorCieloNieve
+			las nubes de lluvia y los copos de nieve se podrán ver
+			cuando pasen 48 segundos //o sea que nieve al menos una vez
+				la imagen de fondo del bosque será 'winterForest.png'
+				el fondo de la tierra será de color blanco
+				idem anterior pero con el pasto del jardín
+
+	-nieve a sol
+		sucederá cuando:
+			esté nevando
+			hayan pasado 96 segundos (2 nevadas)
+		cambios:
+		 	las nubes normales de verán de nuevo
+			animación colorCieloNieve reemplazada por colorCieloInvierno
+			las nubes de lluvia y los copos de nieve no se verán más
+
+Por lo que se vió, hay muchos cambios de animaciones. Entonces, la propiedad "animación" de CSS deberá estar sola en una clase, cosa de poder añadirla y removerla con facilidad.
+
+
+
+
+
+
+
+
+
+
+
+
+

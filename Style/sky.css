@@ -15,7 +15,22 @@ body {
 	height: 50%;
 	width: 100%;
 	background-color: #58FAF4;
-	animation: skyColor 48s infinite;
+}
+
+.summerSkyAnimation {
+	animation: skyColorSummer 48s infinite;
+}
+
+.winterSkyAnimation {
+	animation: skyColorWinter 48s infinite;
+}
+
+.rainSkyAnimation {
+	animation: skyColorRain 48s infinite;
+}
+
+.snowSkyAnimation {
+	animation: skyColorSnow 48s infinite;
 }
 
 .moon {
@@ -28,7 +43,14 @@ body {
 	top: 55%;
 	right: -15%;
 	z-index: 1;
-	animation: moonMovement 48s infinite;
+}
+
+.summerMoonAnimation {
+	animation: moonMovementSummer 48s infinite;
+}
+
+.winterMoonAnimation {
+	animation: moonMovementWinter 48s infinite;
 }
 
 .sun {
@@ -41,12 +63,27 @@ body {
 	right: 0;	
 	top: 5%;
 	z-index: 1;
-	animation: sunMovement 48s infinite;
 }
 
-.cloud {
+.summerSunAnimation {
+	animation: sunMovementSummer 48s infinite;
+}
+
+.winterSunAnimation {
+	animation: sunMovementWinter 48s infinite;
+}
+
+.normalCloudsRain, .rainDropHidden, .snowFlakeHidden {
+	opacity: 0;
+}
+
+.normalClouds {
+	transition: all 5s;
+}
+
+.normalCloud {
 	position: absolute;
-	background: url(../Img/cloud.png);
+	background: url(../Img/normalCloud.png);
 	background-repeat: no-repeat;
 	background-size: contain;
 	height: 75px;
@@ -105,7 +142,69 @@ body {
 	animation-delay: -5s;
 }
 
+.rainClouds {
+	opacity: 0;
+	position: absolute;
+	top: -10%;
+	left: -120%;
+	width: 110%;
+	z-index: 2;
+	animation: rainCloudMovement 48s infinite;
+}
+
+.rainCloudsAppear, .rainDropAppear, .snowFlakeAppear {
+	opacity: 1; 
+}
+
+.rainCloud {
+	background: url(../Img/rainyCloud.png);
+	background-repeat: space;
+	background-size: contain; 
+	height: 120px;
+	width: 100%;
+	margin-top: -2%;
+}
+
+.cloud8, .cloud10, .cloud12, .cloud14 {
+	margin-top: -7%;
+	margin-left: 5%;
+}
+
+.cloud9, .cloud11, .cloud13 {
+	margin-top: -5%;
+}
+
+.rain, .snow {
+	position: absolute;
+	left: 0;
+	top: -200%;
+	width: 100%;
+	z-index: 1;
+	animation: rainMovement 48s linear infinite;
+}
+
+.rainDrop {
+	background: url(../Img/rainDrop.png);
+	background-repeat: space;
+	background-size: contain; 
+	height: 70px;
+	width: 110%;	
+}
+
+.water2, .water4, .water6, .water8, .water10, .snow2, .snow4, .snow6, .snow8, .snow10, .snow12 {
+	margin-left: -2%;
+}
+
+.snowFlake {
+	background: url(../Img/snowFlake.png);
+	background-repeat: space;
+	background-size: contain; 
+	height: 50px;
+	width: 120%;
+}
+
 .stars {
+	opacity: 1;
 	position: absolute;
 	left: 10%;
 	top: 5%;
@@ -134,7 +233,7 @@ body {
 }
 
 .star4 {
-	margin-top: 19%;
+	margin-top: 10%;
 }
 
 .star5 {
@@ -153,5 +252,13 @@ body {
 	height: 50px;
 	width: 50px;
 	z-index: 0;
-	animation: starsOpacity 48s infinite;
 }
+
+.summerStars {
+	animation: starsOpacitySummer 48s infinite;
+}
+
+.winterStars {
+	animation: starsOpacityWinter 48s infinite;
+}
+

@@ -13,7 +13,6 @@
 	width: 100%;
 	top: 0;
 	background-color: #58FAF4;
-	animation: skyColor 48s infinite;
 }
 
 .groundBack {
@@ -23,17 +22,26 @@
 	margin-top: 85%;
 	bottom: 0;
 	background-color: #9AFE2E;
+	transition: all 10s;
+}
+
+.summerForest {
+	background: url(../Img/forest.png);
+}
+
+.winterForest {
+	background: url(../Img/winterForest.png);
 }
 
 .forest {
 	position: absolute;
-	background: url(../Img/forest.png);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
 	height: 90%;
 	width: 100%;
 	bottom: 10%;
+	transition: all 5s linear;
 }
 
 .plants {
@@ -44,7 +52,14 @@
 	z-index: 3;
 	bottom: 10%;
 	padding-left: 4%;
-	animation: plantsMovement 48s infinite;
+}
+
+.summerPlants {
+	animation: plantsMovementSummer 48s infinite;
+}
+
+.winterPlants {
+	animation: plantsMovementWinter 48s infinite;
 }
 
 .plant1 {
@@ -75,6 +90,10 @@
 	background: url(../Img/flower.png);
 }
 
+.plantHidden {
+	opacity: 0;
+}
+
 .plant {
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -88,8 +107,10 @@
 	height: 11%;
 	width: 90%;
 	bottom: 0;
+	border: 2px solid black;
 	border-radius: 15px;
 	z-index: 4;
+	transition: all 10s;
 }
 
 .fence {
@@ -127,7 +148,15 @@
 	background-color: red;
 	opacity: 0.8; 
 	z-index: 2;
-	animation: mercuryRise 48s infinite;
+	transition: all 5s linear;
+}
+
+.summerMercuryAnimation {
+	animation: mercuryRiseSummer 48s infinite;
+}
+
+.winterMercuryAnimation {
+	animation: mercuryRiseWinter 48s infinite;
 }
 
 .line {
@@ -154,65 +183,65 @@
 }
 
 .line2 {
-	bottom: 20%;
-}
-
-.line3 {
-	bottom: 30%;
-}
-
-.line4 {
-	bottom: 40%;
-}
-
-.line5 {
-	bottom: 50%;
-}
-
-.line6 {
-	bottom: 60%;
-}
-
-.line7 {
-	bottom: 70%;
-}
-
-.line8 {
-	bottom: 80%;
-}
-
-.line9 {
-	bottom: 90%;
-}
-
-.line10 {
 	bottom: 15%;
 }
 
-.line11 {
+.line3 {
+	bottom: 20%;
+}
+
+.line4 {
 	bottom: 25%;
 }
 
-.line12 {
+.line5 {
+	bottom: 30%;
+}
+
+.line6 {
 	bottom: 35%;
 }
 
-.line13 {
+.line7 {
+	bottom: 40%;
+}
+
+.line8 {
 	bottom: 45%;
 }
 
-.line14 {
+.line9 {
+	bottom: 50%;
+}
+
+.line10 {
 	bottom: 55%;
 }
 
-.line15 {
+.line11 {
+	bottom: 60%;
+}
+
+.line12 {
 	bottom: 65%;
 }
 
-.line16 {
+.line13 {
+	bottom: 70%;
+}
+
+.line14 {
 	bottom: 75%;
 }
 
-.line17 {
+.line15 {
+	bottom: 80%;
+}
+
+.line16 {
 	bottom: 85%;
+}
+
+.line17 {
+	bottom: 90%;
 }
