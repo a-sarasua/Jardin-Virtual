@@ -124,7 +124,7 @@
 
 @keyframes skyColorSummer {
 	0%, 23%, 100% {
-		background-color: #58FAF4;
+		background-color: #81F7F3;
 	}
 
 	27%, 77% {
@@ -138,7 +138,7 @@
 
 @keyframes skyColorRain {
 	0%, 23%, 100% {
-		background-color: #58ACFA;
+		background-color: #81F7F3;
 	}
 
 	27%, 77% {
@@ -152,7 +152,7 @@
 
 @keyframes skyColorWinter {
 	0%, 21%, 100% {
-		background-color: #A9F5F2;
+		background-color: #81F7F3;
 	}
 
 	23%, 81% {
@@ -240,11 +240,11 @@
 @keyframes mercuryRiseWinter {
 	0%, 100% {
 		border-radius: 0 0 30px 30px;
-		height: 45%;
+		height: 40%;
 	}
 
 	23% {
-		height: 35%;
+		height: 30%;
 	}
 
 	50% {
@@ -253,6 +253,28 @@
 
 	83% {
 		height: 10%;
+	}
+}
+
+@keyframes mercurySummerToWinter {
+	0% {
+		height: 75%;
+	}
+
+	100% {
+		height: 40%;
+		border-radius: 0 0 30px 30px;
+	}
+}
+
+@keyframes mercuryWinterToSummer {
+	0% {
+		height: 40%;
+	}
+
+	100% {
+		height: 75%;
+		border-radius: 0 0 30px 30px;
 	}
 }
 

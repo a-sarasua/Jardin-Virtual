@@ -159,6 +159,16 @@
 	animation: mercuryRiseWinter 48s infinite;
 }
 
+.mercurySummerToWinter {
+	animation: mercurySummerToWinter .5s;
+	animation-iteration-count: 1;
+}
+
+.mercuryWinterToSummer {
+	animation: mercuryWinterToSummer .5s;
+	animation-iteration-count: 1;	
+}
+
 .line {
 	position: absolute;
 	border-bottom: 3px solid black; 
