@@ -27,14 +27,17 @@ window.onload = function () {
 
 	function selectAction() {
 		if (temperature < 16){
-			if(!winter)
-			summer = false
-			summerToWinter()
-			if (humidity >= 75) setTimeout(winterToSnow,48000)
-		} else if(!summer) {
-			winter = false
-			winterToSummer()
-			if (humidity > 75) setTimeout(summerToRain, 48000)
+			if(!winter) {
+				summer = false
+				summerToWinter()
+			}
+			if (humidity > 70) setTimeout(winterToSnow,48000)
+		} else {
+			if(!summer) {
+				winter = false
+				winterToSummer()
+			}
+			if (humidity > 70) setTimeout(summerToRain,48000)
 		}
 	}
 
