@@ -156,7 +156,7 @@ window.onload = function () {
 	}
 
 	function getWeatherInfo() {
-		http.open('GET', 'http://api.weatherapi.com/v1/current.json?key=de67ace33292425db51201946202007&q=buenos aires')
+		http.open('GET', 'https://api.weatherapi.com/v1/current.json?key=de67ace33292425db51201946202007&q=buenos aires')
 		http.send()
 		http.onreadystatechange = function() {
 			if (http.responseText === '') return
