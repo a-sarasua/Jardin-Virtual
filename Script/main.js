@@ -5,16 +5,17 @@ window.onload = function () {
 	const sky = document.querySelectorAll('.sky,.skyBack')
 	const rainDrop = document.querySelectorAll('.rainDrop')
 	const snowFlake = document.querySelectorAll('.snowFlake')
+	const normalClouds = document.querySelector('.normalClouds')
+	const rainClouds = document.querySelector('.rainClouds')
 	const sun = document.querySelector('.sun')
 	const moon = document.querySelector('.moon')
-	const mercury = document.querySelector('.mercury')
 	const stars = document.querySelector('.stars')
+	
+	const mercury = document.querySelector('.mercury')
 	const plants = document.querySelector('.plants')
 	const forest = document.querySelector('.forest')
 	const groundBack = document.querySelector('.groundBack')
 	const gardenGrass = document.querySelector('.gardenGrass')
-	const normalClouds = document.querySelector('.normalClouds')
-	const rainClouds = document.querySelector('.rainClouds')
 	const plant1 = document.querySelector('.plant1')
 	const plant5 = document.querySelector('.plant5')
 	const plant7 = document.querySelector('.plant7')
@@ -156,7 +157,7 @@ window.onload = function () {
 	}
 
 	function getWeatherInfo() {
-		http.open('GET', 'https://api.weatherapi.com/v1/current.json?key=de67ace33292425db51201946202007&q=buenos aires')
+		http.open('GET', 'http://api.weatherapi.com/v1/current.json?key=de67ace33292425db51201946202007&q=buenos aires')
 		http.send()
 		http.onreadystatechange = function() {
 			if (http.responseText === '') return
