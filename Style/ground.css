@@ -131,7 +131,7 @@
 	top: 2%;
 	right: 6%;
 	height: 60%;
-	width: 3%; 
+	width: 3.5%; 
 	border: 4px solid #8A4B08;
 	border-radius: 30px;
 	background-color: white;
@@ -176,11 +176,11 @@
 }
 
 .bigLine {
-	width: 70%;
+	width: 50%;
 }
 
 .smallLine {
-	width: 35%;
+	width: 25%;
 }
 
 .line0 {
@@ -188,7 +188,7 @@
 	border-radius: 0 0 0 30px;
 }
 
-.line1 {
+.line1, .number1 {
 	bottom: 10%;
 }
 
@@ -200,7 +200,7 @@
 	bottom: 20%;
 }
 
-.line4 {
+.line4, .number2 {
 	bottom: 25%;
 }
 
@@ -212,7 +212,7 @@
 	bottom: 35%;
 }
 
-.line7 {
+.line7, .number3 {
 	bottom: 40%;
 }
 
@@ -224,7 +224,7 @@
 	bottom: 50%;
 }
 
-.line10 {
+.line10, .number4 {
 	bottom: 55%;
 }
 
@@ -236,7 +236,7 @@
 	bottom: 65%;
 }
 
-.line13 {
+.line13, .number5 {
 	bottom: 70%;
 }
 
@@ -248,10 +248,21 @@
 	bottom: 80%;
 }
 
-.line16 {
+.line16, .number6 {
 	bottom: 85%;
 }
 
 .line17 {
 	bottom: 90%;
+}
+
+.number {
+	position: absolute;
+	left: 55%;
+	font-size: 20px;
+	z-index: 3;
+}
+
+.number1 {
+	left: 65%;
 }
